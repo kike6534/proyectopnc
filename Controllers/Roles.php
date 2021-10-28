@@ -83,7 +83,7 @@
 
 		public function getRol(int $idrol)
 		{
-			if ($_SESSION['permisosMod']['leer']) {
+			//if ($_SESSION['permisosMod']['leer']) {
 				$intIdrol = intval(strClean($idrol));
 				if($intIdrol > 0)
 				{
@@ -96,7 +96,7 @@
 					}
 					echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
 				}
-			}
+			//}
 			die();
 		}
 
@@ -145,7 +145,7 @@
 		public function delRol()
 		{
 			if($_POST){
-				if ($_SESSION['permisosMod']['eliminar']) {
+				//if ($_SESSION['permisosMod']['eliminar']) {
 					$intIdrol = intval($_POST['idrol']);
 					$requestDelete = $this->model->deleteRol($intIdrol);
 					if($requestDelete == 'ok')
@@ -157,7 +157,7 @@
 						$arrResponse = array('estado' => false, 'msg' => 'Error al eliminar el Rol.');
 					}
 					echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
-				}
+				//}
 			}
 			die();
 		}

@@ -24,7 +24,7 @@
 		{
 			//BUSCAR ROLE
 			$this->intIdrol = $idrol;
-			$sql = "SELECT * FROM rol WHERE idrol = $this->intIdrol";
+			$sql = "SELECT * FROM tbl_rol WHERE idrol = $this->intIdrol";
 			$request = $this->select($sql);
 			return $request;
 		}
@@ -52,7 +52,7 @@
 			$this->strDescripcion = $descripcion;
 			$this->intestado = $estado;
 
-			$sql = "SELECT * FROM tbl_rol WHERE nombrerol = '{$this->strRol}' ";
+			$sql = "SELECT * FROM tbl_rol WHERE nombrerol = '{$this->strRol}' AND estado != 0";
 			$request = $this->select_all($sql);
 
 			if(empty($request))
@@ -73,12 +73,12 @@
 			$this->strDescripcion = $descripcion;
 			$this->intestado = $estado;
 
-			$sql = "SELECT * FROM rol WHERE nombrerol = '$this->strRol' AND idrol != $this->intIdrol";
+			$sql = "SELECT * FROM tbl_rol WHERE nombrerol = '$this->strRol' AND idrol != $this->intIdrol AND estado != 0";
 			$request = $this->select_all($sql);
 
 			if(empty($request))
 			{
-				$sql = "UPDATE rol SET nombrerol = ?, descripcion = ?, estado = ? WHERE idrol = $this->intIdrol ";
+				$sql = "UPDATE tbl_rol SET nombrerol = ?, descripcion = ?, estado = ? WHERE idrol = $this->intIdrol ";
 				$arrData = array($this->strRol, $this->strDescripcion, $this->intestado);
 				$request = $this->update($sql,$arrData);
 			}else{
@@ -90,11 +90,11 @@
 		public function deleteRol(int $idrol)
 		{
 			$this->intIdrol = $idrol;
-			$sql = "SELECT * FROM usuario WHERE rolid = $this->intIdrol";
+			$sql = "SELECT * FROM tbl_usuario WHERE rolid = $this->intIdrol";
 			$request = $this->select_all($sql);
 			if(empty($request))
 			{
-				$sql = "UPDATE rol SET estado = ? WHERE idrol = $this->intIdrol ";
+				$sql = "UPDATE tbl_rol SET estado = ? WHERE idrol = $this->intIdrol ";
 				$arrData = array(0);
 				$request = $this->update($sql,$arrData);
 				if($request)
