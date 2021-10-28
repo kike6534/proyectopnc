@@ -6,9 +6,9 @@
 			parent::__construct();
 			session_start();
 			//session_regenerate_id(true); //para seguridad de sesiones, el id anterior se eliminara y creara uno nuevo
-			if (empty($_SESSION['login'])) {
-				header('location: '.base_url().'/login');
-			}
+			//if (empty($_SESSION['login'])) {
+			//	header('location: '.base_url().'/login');
+			//}
 			//Como este controlador muestra la vista del dashboard, y como en la base el modeulo dashboard tiene el id 1, por eso ese se manda de param
 			//getPermisos(1);
 		}

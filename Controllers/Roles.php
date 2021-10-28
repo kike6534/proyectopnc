@@ -32,11 +32,12 @@
 		{
 			//if ($_SESSION['permisosMod']['leer']) {
 				$arrData = $this->model->selectRoles();
-
+				$htmlDatosTabla = "";
 				for ($i=0; $i < count($arrData); $i++) {
 					$btnView = "";
 					$btnEdit = "";
 					$btnDelete = "";
+					
 
 					if($arrData[$i]['estado'] == 1)
 					{
@@ -45,8 +46,6 @@
 						$arrData[$i]['estado'] = '<span class="badge bg-danger">Inactivo</span>';
 					}
 
-					
-			
 					//si tiene permiso de editar se agrega el botn
 					//if ($_SESSION['permisosMod']['actualizar']) {
 						$btnView = '<button class="btn btn-warning btn-sm btnPermisosRol" onClick="fntPermisos('.$arrData[$i]['idrol'].')" title="Permisos"><i class="fas fa-key"></i></button>';
@@ -59,9 +58,17 @@
 					//agregamos los botones
 					$arrData[$i]['opciones'] = '<div class="text-center">'.$btnView.' '.$btnEdit.' ' .$btnDelete.'</div>';
 
+					$htmlDatosTabla.='<tr>
+			                            <td>'.$arrData[$i]['idrol'].'</td>
+			                            <td>'.$arrData[$i]['nombrerol'].'</td>
+			                            <td>'.$arrData[$i]['descripcion'].'</td>
+			                            <td>'.$arrData[$i]['estado'].'</td>
+			                            <td>'.$arrData[$i]['opciones'].'</td>
+			                         </tr>';
 				
 				}
-				echo json_encode($arrData,JSON_UNESCAPED_UNICODE);
+				$arrayDatos = array('datosIndividuales' => $arrData,'htmlDatosTabla' => $htmlDatosTabla);
+				echo json_encode($arrayDatos,JSON_UNESCAPED_UNICODE);
 			//}
 			die();
 		}

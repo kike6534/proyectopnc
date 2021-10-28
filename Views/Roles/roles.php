@@ -32,7 +32,7 @@
                                 <div class="table-responsive">
                                     <table class="table table-striped" id="tableRoles">
                                         <thead>
-                                            <tr>
+                                            <tr>  
                                               <th>ID</th>
                                               <th>Rol</th>
                                               <th>Descripcion</th>
@@ -40,7 +40,7 @@
                                               <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="datos_tabla">
                                             
                                         </tbody>
                                     </table>

@@ -21,10 +21,31 @@
                 <li class="sidebar-item <?php if ($data['page_name'] == 'home') {
                                             echo 'active';
                                         } ?>">
-                    <a href="index.php" class='sidebar-link'>
+                    <a href="<?= base_url(); ?>/Dashboard" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span><b>Inicio</b></span>
                     </a>
+                </li>
+                <li class="sidebar-item  has-sub <?php if ($data['page_name'] == 'usuarios') {
+                                                        echo 'active';
+                                                    } ?>">
+                    <a href="#" class='sidebar-link'>
+                        <i class="fas fa-user"></i>
+                        <span><b>Usuarios</b></span>
+                    </a>
+                    <ul class="submenu  <?php if ($data['page_name'] == 'exp') {
+                                            echo 'active';
+                                        } ?>">
+                        <li class="submenu-item <?php if ($item == '1') {
+                                                    echo 'active';
+                                                } ?>  ">
+                            <a href="nuevo_expediente.php"><b>Usuarios</b></a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="<?= base_url(); ?>/Roles"><b>Roles</b></a>
+                        </li>
+
+                    </ul>
                 </li>
                 <li class="sidebar-item  has-sub <?php if ($data['page_name'] == 'exp') {
                                                         echo 'active';

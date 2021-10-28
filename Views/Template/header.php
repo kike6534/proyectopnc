@@ -17,7 +17,10 @@
 
 
     <!-- CSS DATATABLES-->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+    
+    
+
    
     <!-- ALGUNOS STYLES A CLASES, NO BORRAR-->
     <link rel="stylesheet" type="text/css" href="<?= media(); ?>/css/style.css">
