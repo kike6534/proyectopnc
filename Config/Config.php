@@ -1,6 +1,7 @@
 <?php 
 	
 	const BASE_URL = "http://localhost/proyectopnc";
+	const BASE_URL2 = "http://localhost/proyectopnc/consultas";
 
 	//Zona horaria
 	date_default_timezone_set('America/El_Salvador');

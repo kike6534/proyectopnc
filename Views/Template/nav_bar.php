@@ -121,6 +121,12 @@
 
                     </ul>
                 </li>
+                <li class="sidebar-item">
+                    <a href="<?= base_url(); ?>/Consultas" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span><b>Consultas</b></span>
+                    </a>
+                </li>
             </ul>
             </ul>
 

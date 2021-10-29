@@ -5,6 +5,10 @@
 	{
 		return BASE_URL;
 	}
+    function base_url2()
+	{
+		return BASE_URL2;
+	}
     //Retorla la url de Assets
     function media()
     {
@@ -14,6 +18,21 @@
     {
         $view_header = "Views/Template/header.php";
         require_once ($view_header);
+    }
+    function headerstyle1($data="")
+    {
+        $view_footer = "Views/Template/headerstyle1.php";
+        require_once ($view_footer);        
+    }
+    function navbar1($data="")
+    {
+        $view_footer = "Views/Template/navbar1.php";
+        require_once ($view_footer);        
+    }
+    function footer1($data="")
+    {
+        $view_footer = "Views/Template/footer1.php";
+        require_once ($view_footer);        
     }
     function footerAdmin($data="")
     {
