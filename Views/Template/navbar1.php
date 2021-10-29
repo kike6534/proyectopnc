@@ -126,7 +126,7 @@
                                 <a href="<?= base_url(); ?>" style="color: #25396f;     font-weight: 700;
     
     
-    margin-top: 0;"  ><i class="mdi mdi-keyboard-return"></i>Retornar a Inicio</a>
+    margin-top: 0;"  ><i class="fas fa-arrow-left"></i>Retornar a Inicio</a>
 
                             </li>
 
@@ -134,7 +134,7 @@
                                 <a href="#"  style="color: #25396f;     font-weight: 700;
     
     
-    margin-top: 0;" ><i class="mdi mdi-buffer" ></i>Departamento</a>
+    margin-top: 0;" ><i class="fas fa-newspaper" ></i>Departamento</a>
                                 <ul class="submenu megamenu">
                                     <li>
                                         <ul>
@@ -161,7 +161,7 @@
                                 <a href="#"  style="color: #25396f;     font-weight: 700;
     
     
-    margin-top: 0;" ><i class="mdi mdi-cube-outline"></i>Delegación</a>
+    margin-top: 0;" ><i class="fas fa-balance-scale-right"></i>Delegación</a>
                                 <ul class="submenu">
                                     <li class="has-submenu">
                                         <a href="#">Investigacion</a>
@@ -183,7 +183,7 @@
                                 <a href="#"  style="color: #25396f;     font-weight: 700;
     
     
-    margin-top: 0;" ><i class="mdi mdi-book"></i>Libros </a>
+    margin-top: 0;" ><i class="fas fa-book"></i>Libros </a>
                                 <ul class="submenu megamenu">
                                    
                                     <li>
@@ -203,7 +203,7 @@
                                 <a href="#"  style="color: #25396f;     font-weight: 700;
     
     
-    margin-top: 0;" ><i class="mdi mdi-book-multiple-variant"></i>Novedades</a>
+    margin-top: 0;" ><i class="fas fa-air-freshener"></i>Novedades</a>
 
                             </li>
 
@@ -211,13 +211,13 @@
                                 <a href="../frontend/" target="_blank"  style="color: #25396f;     font-weight: 700;
     
     
-    margin-top: 0;" ><i class="mdi mdi-airplane"></i>Grupos</a>
+    margin-top: 0;" ><i class="fas fa-users"></i>Grupos</a>
                             </li>
                             <li class="has-submenu">
                                 <a href="../frontend/" target="_blank"  style="color: #25396f;     font-weight: 700;
     
     
-    margin-top: 0;" ><i class="mdi mdi-book-open-page-variant"></i>Reportes</a>
+    margin-top: 0;" ><i class="fas fa-file-pdf"></i>Reportes</a>
                                 <ul class="submenu" style="background-color: cadetblue;">
                                     <li><a href="ecommerce-product-list.php" style="color: white;">Libro de Actividades</a></li>
                                     <li><a href="ecommerce-product-grid.php">Estados de Actividades</a></li>
