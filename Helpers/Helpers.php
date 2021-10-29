@@ -24,6 +24,11 @@
         $view_footer = "Views/Template/headerstyle1.php";
         require_once ($view_footer);        
     }
+    function headerstyle2($data="")
+    {
+        $view_footer = "Views/Template/headerstyle2.php";
+        require_once ($view_footer);        
+    }
     function navbar1($data="")
     {
         $view_footer = "Views/Template/navbar1.php";
