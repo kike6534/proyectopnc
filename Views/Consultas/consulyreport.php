@@ -1,16 +1,15 @@
-<
-<?php 
-  headerAdmin($data); 
+<?php include 'layouts/header.php'; ?>
 
-?> 
+<!-- C3 charts css -->
+<link href="public/assets/plugins/c3/c3.min.css" rel="stylesheet" type="text/css" />
+
+<?php include 'layouts/headerStyle.php'; ?>
+
     <body>
 
-        <!-- <div id="sidebar" class="active"> -->  
-        <?php 
-                   headerstyle1($data); 
-                   navbar1($data); 
-        ?> 
-        <!-- </div> -->
+        <?php include 'layouts/loader.php'; ?>
+
+        <?php include 'layouts/navbar.php'; ?>
 
         <div class="wrapper">
             <div class="container-fluid">
