@@ -65,8 +65,8 @@ function cargar_datos(){
         data : datos,
     }).done(function(json) {
         console.log("EL consultar",json);
-        $("#datos_tabla").empty().html(json.htmlDatosTabla);
-        inicializar_tabla("tableRoles");
+        $("#datos_tablasanciones").empty().html(json.htmlDatosTabla);
+        inicializar_tabla("tablesanciones");
     }).fail(function(){
 
     }).always(function(){
@@ -90,9 +90,9 @@ function fntSelects(){
             let objData = JSON.parse(request.responseText);//Lo que trae el JSON del select de NuevaCompra
     
             
-            document.querySelector('#listProve').innerHTML = objData.proveedores;
+            document.querySelector('#datos').innerHTML = objData.proveedores;
            
-            $('#listProve').selectpicker('render');
+            $('#datos').selectpicker('render');
           
     
           
@@ -106,7 +106,7 @@ function fntSelects(){
     
     
     function funci(){
-    var data = document.getElementById("listPr ove").value;
+    var data = document.getElementById("datos").value;
         mostrar_mensaje("Cargando", "Obteniendo datos");
     var datos = {"consultar_info":"si_consultala"}
     $.ajax({
@@ -116,8 +116,8 @@ function fntSelects(){
         data : datos,
     }).done(function(json) {
         console.log("EL consultar",json);
-        $("#datos_tabla").empty().html(json.htmlDatosTabla);
-        inicializar_tabla("tableRoles");
+        $("#datos_tablasanciones").empty().html(json.htmlDatosTabla);
+        inicializar_tabla("tablesanciones");
     }).fail(function(){
 
     }).always(function(){

@@ -46,10 +46,22 @@
 			$this->views->getView($this,"discapacidadconp",$data);
 		}
 
+		public function Discapacidadcopia()
+		{
+
+			$data['page_id'] = 3;
+			$data['page_tag'] = "Discapacidadescopia";
+			$data['page_name'] = "Discapacidades";
+			$data['page_title'] = "Discapacidadcopia";
+			$data['page_functions_js'] = "functions_discapacidadcopia.js";
+			$this->views->getView($this,"discapacidadcopia",$data);
+		}
+
+
 		public function getTipoDiscapacidad() 
 		{
 			$htmlProvee = "";
-			$htmlProvee1 = "<option> Seleccione </option>";
+
 			$arrDataProvee = $this->model->selectProveedores();
 			$htmlProvee .= "<option value='-1'>Seleccione</option>";
 			if(count($arrDataProvee) > 0 ){
@@ -93,12 +105,11 @@
 				$htmlDatosTabla = "";
 				for ($i=0; $i < count($arrData); $i++) {
 					$btnView = "";
-					$btnEdit = "";
-					$btnDelete = "";
+
 
 						$btnView = '<button class="btn btn-warning btn-sm btnPermisosRol" onClick="fntPermisos('.$arrData[$i]['id_oni'].')" title="Permisos"><i class="fas fa-eye"></i></button>';
 
-					$arrData[$i]['opciones'] = '<div class="text-center">'.$btnView.' '.$btnEdit.' ' .$btnDelete.'</div>';
+					$arrData[$i]['opciones'] = '<div class="text-center">'.$btnView.' </div>';
 
 				
 					$htmlDatosTabla.='<tr>

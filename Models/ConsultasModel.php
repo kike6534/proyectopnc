@@ -53,7 +53,13 @@
 			return $request;
 		}
 
-
+		public function selectDiscapacidadcopia(string $tipo)
+		{
+            $this->intIdtipo = $tipo;
+			$sql = "SELECT o.id_oni,d.nombre,d.apellido,disc.tipo_discapacidad from tbl_datos_personales d inner join tbl_oni_policial o on o.fk_dui_policial=d.dui_pk inner join tbl_detallediscapacidad dis on d.dui_pk=dis.duiagente inner join tbl_discapacidad disc on disc.iddiscapacidad=dis.iddiscapacidad where disc.iddiscapacidad = $this->intIdtipo";
+			$request = $this->select_all($sql);
+			return $request;
+		}
 
 
 

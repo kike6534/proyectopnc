@@ -24,21 +24,23 @@
                             <div class="card-header" >
                                  <h3><i class="fas fa-allergies"></i> <?= $data['page_title'] ?></h3>
                             </div>
+
                             <div class="row">
                             <div style="margin-top: 15px; margin-left: 25px;" class="col-md-3">
-                    <label>Tipo Discapacidad</label>
+                    <label>Tipo</label>
 
                      </div>
                     <div style="margin-top: 10px; margin-left: -120px; margin-bottom: 10px;" class="col-md-3">
-                    <select class="form-select" onchange="funci()" style="width: 200px;" data-live-search="true" id="listProve" name="listProve" required >
+                    <select class="form-select" onchange="funci()" style="width: 200px;" data-live-search="true" id="datos" name="datos" required >
                
      
                     </select>
                             </div>
                             </div>
+                            
                             <div class="card-body" style="margin-top: 10px;">
                                 <div class="table-responsive">
-                                    <table class="table table-striped" id="tableRoles">
+                                    <table class="table table-striped" id="tablesanciones">
                                         <thead>
                                             <tr>
                                               <th>ONI</th>
@@ -48,7 +50,7 @@
                                               <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="datos_tabla">
+                                        <tbody id="datos_tablasanciones">
                                             
                                         </tbody>
                                     </table>
