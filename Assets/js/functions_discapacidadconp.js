@@ -106,7 +106,7 @@ function fntSelects(){
     
     
     function funci(){
-    var data = document.getElementById("listPr ove").value;
+    var data = document.getElementById("listProve").value;
         mostrar_mensaje("Cargando", "Obteniendo datos");
     var datos = {"consultar_info":"si_consultala"}
     $.ajax({
