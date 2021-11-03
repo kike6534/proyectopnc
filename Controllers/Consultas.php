@@ -238,5 +238,69 @@
 		}
 		
 
+		public function AgentesSancionesyfaltas()
+		{
+
+			$data['page_id'] = 3;
+			$data['page_tag'] = "AgentesSancionesfaltas";
+			$data['page_name'] = "Sanciones y faltas cometidas";
+			$data['page_title'] = "Sanciones y faltas cometidas";
+			$data['page_functions_js'] = "functions_agentessancionesyfaltas.js";
+			$this->views->getView($this,"agentessancionesyfaltas",$data);
+		}
+
+		public function getAgentesSancionesyFaltas()
+		{
+
+				$arrData = $this->model->selectAgentesSanciones();
+				$htmlDatosTabla = "";
+				for ($i=0; $i < count($arrData); $i++) {
+					$btnView = "";
+
+				
+					$htmlDatosTabla.='<tr>
+					<td>'.$arrData[$i]['rango_policia'].'</td>
+					<td>'.$arrData[$i]['num_oni'].'</td>
+					<td>'.$arrData[$i]['nombre'].'</td>
+					<td>'.$arrData[$i]['apellido'].'</td>
+					<td>'.$arrData[$i]['fecha_de_sansion'].'</td>
+					
+					if($arrData[$i]['tipo_falta_cometida']== "1"){
+						$arrData[$i]['tipo_falta_cometida']= "Leve";
+					}
+					if($arrData[$i]['tipo_falta_cometida']== "2"){
+                        $arrData[$i]['tipo_falta_cometida']= "Grave";
+					}
+					if($arrData[$i]['tipo_falta_cometida']== "3"){
+                        $arrData[$i]['tipo_falta_cometida']= "Muy grave";
+					}
+					
+					<td>'.$arrData[$i]['sansion'].'</td>
+					<td>'.$arrData[$i]['nivel_org'].'</td>
+				 </tr>';
+
+				}
+				$arrayDatos = array('datosIndividuales' => $arrData,'htmlDatosTabla' => $htmlDatosTabla);
+			echo json_encode($arrayDatos,JSON_UNESCAPED_UNICODE);
+	
+			die();
+		}
+
+		public function selectAgentesSancionescount1()
+		{
+                
+			$nombres = array();
+			$cantidad = array();
+				$arrData = $this->model->selectSancionesVecesAplicadas();
+				
+				for ($i=0; $i < count($arrData); $i++) {
+					array_push($nombres,$arrData[$i]['sansion']);
+					array_push($cantidad,intval($arrData[$i]['veces_aplicada']));
+				}
+				$arrayDatos = array('nombres' => $nombres,'cantidad' => $cantidad);
+			echo json_encode($arrayDatos,JSON_UNESCAPED_UNICODE);
+	
+			die();
+		}
 	}
  ?>

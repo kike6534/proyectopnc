@@ -141,6 +141,7 @@
                                             <li><a href="<?= base_url2(); ?>/Discapacidad">Seguridad Publica Urbana</a></li>
                                             <li><a href="<?= base_url2(); ?>/Discapacidadconp">Seguridad con Parametro</a></li>
                                             <li><a href="<?= base_url2(); ?>/AgentesAntiguosNuevos">Consulta VC18061 Kelvin</a></li>
+                                            <li><a href="<?= base_url2(); ?>/AgentesSancionesyfaltas">Consulta BV17012 Ninet</a></li>
                                             <li><a href="ui-tabs-accordions.php">Inteligencia Policial</a></li>
                                             <li><a href="ui-modals.php">Areas Operativas</a></li>
                                             <li><a href="ui-images.php">Administraciones</a></li>
