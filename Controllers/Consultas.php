@@ -273,7 +273,10 @@
 					<td>'.$arrData[$i]['apellido'].'</td>
 					<td>'.$arrData[$i]['fecha_de_sansion'].'</td>
 					<td>'.$arrData[$i]['tipo_falta_cometida'].'</td>
+<<<<<<< HEAD
 					<td>'.$arrData[$i]['falta'].'</td>
+=======
+>>>>>>> main
 					<td>'.$arrData[$i]['sansion'].'</td>
 					<td>'.$arrData[$i]['nivel_org'].'</td>
 				 </tr>';
