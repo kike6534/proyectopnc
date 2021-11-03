@@ -68,6 +68,17 @@
 			$this->views->getView($this,"agentesnuevosyantiguos",$data);
 		}
 
+		public function PoliciasRenuncia()
+		{
+
+			$data['page_id'] = 3;
+			$data['page_tag'] = "Renuncias de Policias";
+			$data['page_name'] = "Renuncias de Policias";
+			$data['page_title'] = "Renuncias de Policias";
+			$data['page_functions_js'] = "functions_policiasrenuncia.js";
+			$this->views->getView($this,"policiasrenuncia",$data);
+		}
+
 
 		public function getTipoDiscapacidad() 
 		{
@@ -171,6 +182,31 @@
 					<td>'.$arrData[$i]['sexo'].'</td>
 					<td>'.$arrData[$i]['año_promocion'].'</td>
 					<td>'.$arrData[$i]['edad'].'</td>
+				 </tr>';
+
+				}
+				$arrayDatos = array('datosIndividuales' => $arrData,'htmlDatosTabla' => $htmlDatosTabla);
+			echo json_encode($arrayDatos,JSON_UNESCAPED_UNICODE);
+	
+			die();
+		}
+
+		public function getPoliciasRenuncia()
+		{
+
+				$arrData = $this->model->selectPoliciasRenuncia();
+				$htmlDatosTabla = "";
+				for ($i=0; $i < count($arrData); $i++) {
+					$btnView = "";
+
+				
+					$htmlDatosTabla.='<tr>
+					<td>'.$arrData[$i]['rango'].'</td>
+					<td>'.$arrData[$i]['oni'].'</td>
+					<td>'.$arrData[$i]['nombre'].'</td>
+					<td>'.$arrData[$i]['apellido'].'</td>
+					<td>'.$arrData[$i]['fecha'].'</td>
+					<td>'.$arrData[$i]['causa'].'</td>
 				 </tr>';
 
 				}

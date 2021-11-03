@@ -99,6 +99,19 @@
 			return $request;
 		}
 
+		public function selectPoliciasRenuncia()
+		{
+			$sql = "SELECT ra.rango_policia as rango, op.num_oni as oni, dp.nombre, 
+			dp.apellido, CONVERT(varchar,pt.fecha_carrera_policial_terminada,101) as fecha, pt.causa
+			from tbl_datos_personales as dp 
+			inner join tbl_carrera_policial_terminada as pt on dp.dui_pk = pt.fk_dui_policial
+			inner join tbl_oni_policial as op on dp.dui_pk = op.fk_dui_policial
+			inner join tbl_asig_rango ar on op.num_oni = ar.fk_oni_policial
+			inner join tbl_rango ra on ar.fk_rango = ra.id_rango";
+			$request = $this->select_all($sql);
+			return $request;
+		}
+
 		
 		public function selectAgentesSanciones()
 		{
