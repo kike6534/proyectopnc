@@ -301,6 +301,10 @@ GO
 -- ----------------------------
 INSERT INTO [dbo].[tbl_datos_personales] ([dui_pk], [nit], [iss], [nombre], [apellido], [tipo_sangre], [estado_civil], [fecha_nacimiento], [lugar_nacimiento], [sexo], [estatura], [peso], [foto_personal]) VALUES (N'01668595-4', N'000-000000-000-0', N'00000', N'Marvin Aldair', N'Alfaro Ruedas', N'O-', N'Casado', N'2000-10-28', N'Colonia Lomas De apastepeque', N'M', N'1.81', N'85K', NULL)
 GO
+INSERT INTO [dbo].[tbl_datos_personales] ([dui_pk], [nit], [iss], [nombre], [apellido], [tipo_sangre], [estado_civil], [fecha_nacimiento], [lugar_nacimiento], [sexo], [estatura], [peso], [foto_personal]) VALUES (N'53462634-3', N'1234-635467-653-4', N'63747', N'Lucia Isabel', N'Gutierrez Abalos', N'A', N'Soltero', CAST(N'2000-03-07' AS Date), N'Ilobasco', N'Femenino', N'1.65', N'58K', NULL)
+GO
+INSERT INTO [dbo].[tbl_datos_personales] ([dui_pk], [nit], [iss], [nombre], [apellido], [tipo_sangre], [estado_civil], [fecha_nacimiento], [lugar_nacimiento], [sexo], [estatura], [peso], [foto_personal]) VALUES (N'98765432-1', N'1232-123456-123-3', N'83746', N'Erik Manrique', N'Flores Lara', N'B', N'Soltero', CAST(N'1998-07-01' AS Date), N'Tejetepeque', N'Masculino', N'1.73', N'60K', NULL)
+GO
 
 
 -- ----------------------------
@@ -490,7 +494,6 @@ GO
 INSERT INTO [dbo].[tbl_discapacidad] ([iddiscapacidad], [tipo_discapacidad]) VALUES (N'5', N'Auditiva')
 GO
 
-
 -- ----------------------------
 -- Table structure for tbl_enfermedades
 -- ----------------------------
@@ -512,7 +515,16 @@ GO
 -- ----------------------------
 -- Records of tbl_enfermedades
 -- ----------------------------
-
+INSERT INTO [dbo].[tbl_enfermedades] ([id_enfermedad], [nombre_enfermedad], [tipo]) VALUES (1, N'Asma', 1)
+GO
+INSERT INTO [dbo].[tbl_enfermedades] ([id_enfermedad], [nombre_enfermedad], [tipo]) VALUES (2, N'Artritis', 2)
+GO
+INSERT INTO [dbo].[tbl_enfermedades] ([id_enfermedad], [nombre_enfermedad], [tipo]) VALUES (3, N'Diabetes', 3)
+GO
+INSERT INTO [dbo].[tbl_enfermedades] ([id_enfermedad], [nombre_enfermedad], [tipo]) VALUES (4, N'Rabia', 4)
+GO
+INSERT INTO [dbo].[tbl_enfermedades] ([id_enfermedad], [nombre_enfermedad], [tipo]) VALUES (5, N'Sifilis', 5)
+GO
 -- ----------------------------
 -- Table structure for tbl_especialidades
 -- ----------------------------
@@ -781,7 +793,16 @@ GO
 -- ----------------------------
 -- Records of tbl_movi_especialidad
 -- ----------------------------
-
+INSERT INTO [dbo].[tbl_movi_enfermedad] ([id_movi_mi_enfermedad], [fecha_deteccion], [enfermedad_vigente], [url_img_enfermedad], [fk_id_enfermedad], [fk_dui_policial]) VALUES (1, CAST(N'2021-06-10' AS Date), 1, NULL, 1, N'01668595-4')
+GO
+INSERT INTO [dbo].[tbl_movi_enfermedad] ([id_movi_mi_enfermedad], [fecha_deteccion], [enfermedad_vigente], [url_img_enfermedad], [fk_id_enfermedad], [fk_dui_policial]) VALUES (2, CAST(N'2021-05-20' AS Date), 1, NULL, 2, N'01668595-4')
+GO
+INSERT INTO [dbo].[tbl_movi_enfermedad] ([id_movi_mi_enfermedad], [fecha_deteccion], [enfermedad_vigente], [url_img_enfermedad], [fk_id_enfermedad], [fk_dui_policial]) VALUES (3, CAST(N'2021-04-15' AS Date), 1, NULL, 3, N'53462634-3')
+GO
+INSERT INTO [dbo].[tbl_movi_enfermedad] ([id_movi_mi_enfermedad], [fecha_deteccion], [enfermedad_vigente], [url_img_enfermedad], [fk_id_enfermedad], [fk_dui_policial]) VALUES (4, CAST(N'2021-08-19' AS Date), 0, NULL, 4, N'98765432-1')
+GO
+INSERT INTO [dbo].[tbl_movi_enfermedad] ([id_movi_mi_enfermedad], [fecha_deteccion], [enfermedad_vigente], [url_img_enfermedad], [fk_id_enfermedad], [fk_dui_policial]) VALUES (5, CAST(N'2021-07-14' AS Date), 0, NULL, 5, N'01668595-4')
+GO
 -- ----------------------------
 -- Table structure for tbl_movi_ingreso
 -- ----------------------------
@@ -2458,7 +2479,6 @@ GO
 -- ----------------------------
 -- Records of tbl_usuario
 -- ----------------------------
-
 -- ----------------------------
 -- Table structure for tbl_vehiculo
 -- ----------------------------
