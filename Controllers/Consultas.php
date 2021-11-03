@@ -23,6 +23,27 @@
 			$this->views->getView($this,"consulyreport",$data);
 		}
 
+        public function Enfermedad()
+		{
+
+			$data['page_id'] = 3;
+			$data['page_tag'] = "Enfermedades";
+			$data['page_name'] = "Enfermedades";
+			$data['page_title'] = "Enfermedades";
+			$data['page_functions_js'] = "functions_enfermedad.js";
+			$this->views->getView($this,"enfermedad",$data);
+		}
+
+		public function Enfermedadconp()
+		{
+
+			$data['page_id'] = 3;
+			$data['page_tag'] = "Enfermedades";
+			$data['page_name'] = "Enfermedades";
+			$data['page_title'] = "Enfermedades por Fechas";
+			$data['page_functions_js'] = "functions_enfermedadconp.js";
+			$this->views->getView($this,"enfermedadconp",$data);
+		}
 
 		public function Discapacidad()
 		{
@@ -331,5 +352,180 @@
 	
 			die();
 		}
+
+		public function getEnfermedadescount()
+		{
+                
+			$nombres = array();
+			$cantidad = array();
+				$arrData = $this->model->selectEnfermedadcount();
+				
+				for ($i=0; $i < count($arrData); $i++) {
+					 $vigente = "";
+				     if($arrData[$i]['enfermedad_vigente'] == 1){
+                        $vigente = "Si";
+				     }else{
+                        $vigente = "No";
+				     }
+					array_push($nombres,$vigente);
+					array_push($cantidad,intval($arrData[$i]['cantidad']));
+				}
+				$arrayDatos = array('nombres' => $nombres,'cantidad' => $cantidad);
+			echo json_encode($arrayDatos,JSON_UNESCAPED_UNICODE);
+	
+			die();
+		}
+
+		public function getEnfermedades()
+		{       
+
+				$arrData = $this->model->selectEnfermedad();
+				$htmlDatosTabla = "";
+				for ($i=0; $i < count($arrData); $i++) {
+					$btnView = "";
+
+
+						$btnView = '<button class="btn btn-warning btn-sm btnPermisosRol" onClick="fntPermisos('.$arrData[$i]['dui_pk'].')" title="Permisos"><i class="fas fa-eye"></i></button>';
+
+					$arrData[$i]['opciones'] = '<div class="text-center">'.$btnView.' </div>';
+
+				     $vigente = "";
+				     $tipo = "";
+				     if($arrData[$i]['enfermedad_vigente'] == 1){
+                        $vigente = "Si";
+				     }else{
+                        $vigente = "No";
+				     }
+                     
+                     if($arrData[$i]['tipo']==1){
+                        $tipo = "Oncologica";
+				     }else if($arrData[$i]['tipo']==2){
+                        $tipo = "Infecciosas o Parasitaria";
+				     }else if($arrData[$i]['tipo']==3){
+                        $tipo = "De Sangre";
+				     }else if($arrData[$i]['tipo']==4){
+                        $tipo = "Sistema Inmunitario";
+				     }else if($arrData[$i]['tipo']==5){
+                        $tipo = "Endocrinas";
+				     }else if($arrData[$i]['tipo']==6){
+                        $tipo = "Del comportamiento y del Desarrollo";
+				     }else if($arrData[$i]['tipo']==7){
+                        $tipo = "Del Sistema Nervioso";
+				     }else if($arrData[$i]['tipo']==8){
+                        $tipo = "Oftalmologicas y de la Vision";
+				     }else if($arrData[$i]['tipo']==9){
+                        $tipo = "Auditiva";
+				     }else if($arrData[$i]['tipo']==10){
+                        $tipo = "Cardiovascular";
+				     }else if($arrData[$i]['tipo']==11){
+                        $tipo = "Respiratoria";
+				     }else if($arrData[$i]['tipo']==12){
+                        $tipo = "Sistema Digestivo";
+				     }else if($arrData[$i]['tipo']==13){
+                        $tipo = "De la Piel";
+				     }else if($arrData[$i]['tipo']==14){
+                        $tipo = "Del Aparato Genitourinario";
+				     }else if($arrData[$i]['tipo']==15){
+                        $tipo = "Congenitas y Alteraciones Cromosonicas";
+				     } 
+
+					$htmlDatosTabla.='<tr>
+					<td>'.$arrData[$i]['dui_pk'].'</td>
+					<td>'.$arrData[$i]['fecha_deteccion'].'</td>
+					<td>'.$arrData[$i]['nombre'].'</td>
+					<td>'.$arrData[$i]['apellido'].'</td>
+					<td>'.$vigente.'</td>
+					<td>'.$arrData[$i]['sexo'].'</td>
+					<td>'.$arrData[$i]['estatura'].'</td>
+					<td>'.$arrData[$i]['peso'].'</td>
+					<td>'.$arrData[$i]['nombre_enfermedad'].'</td>
+					<td>'.$tipo.'</td>
+					<td>'.$arrData[$i]['opciones'].'</td>
+				 </tr>';
+
+				}
+				$arrayDatos = array('datosIndividuales' => $arrData,'htmlDatosTabla' => $htmlDatosTabla);
+			echo json_encode($arrayDatos,JSON_UNESCAPED_UNICODE);
+	
+			die();
+		}
+
+public function getEnfermedadesconp(string $fecha)
+		{
+			
+				$arrData = $this->model->selectEnfermedadconp($fecha);
+
+				$htmlDatosTabla = "";
+				for ($i=0; $i < count($arrData); $i++) {
+					$btnView = "";
+					$btnEdit = "";
+					$btnDelete = "";
+
+						$btnView = '<button class="btn btn-warning btn-sm btnPermisosRol" onClick="fntPermisos('.$arrData[$i]['dui_pk'].')" title="Permisos"><i class="fas fa-eye"></i></button>';
+
+					$arrData[$i]['opciones'] = '<div class="text-center">'.$btnView.' '.$btnEdit.' ' .$btnDelete.'</div>';
+                    $vigente = "";
+				     $tipo = "";
+				     if($arrData[$i]['enfermedad_vigente'] == 1){
+                        $vigente = "Si";
+				     }else{
+                        $vigente = "No";
+				     }
+
+				     if($arrData[$i]['tipo']==1){
+                        $tipo = "Oncologica";
+				     }else if($arrData[$i]['tipo']==2){
+                        $tipo = "Infecciosas o Parasitaria";
+				     }else if($arrData[$i]['tipo']==3){
+                        $tipo = "De Sangre";
+				     }else if($arrData[$i]['tipo']==4){
+                        $tipo = "Sistema Inmunitario";
+				     }else if($arrData[$i]['tipo']==5){
+                        $tipo = "Endocrinas";
+				     }else if($arrData[$i]['tipo']==6){
+                        $tipo = "Del comportamiento y del Desarrollo";
+				     }else if($arrData[$i]['tipo']==7){
+                        $tipo = "Del Sistema Nervioso";
+				     }else if($arrData[$i]['tipo']==8){
+                        $tipo = "Oftalmologicas y de la Vision";
+				     }else if($arrData[$i]['tipo']==9){
+                        $tipo = "Auditiva";
+				     }else if($arrData[$i]['tipo']==10){
+                        $tipo = "Cardiovascular";
+				     }else if($arrData[$i]['tipo']==11){
+                        $tipo = "Respiratoria";
+				     }else if($arrData[$i]['tipo']==12){
+                        $tipo = "Sistema Digestivo";
+				     }else if($arrData[$i]['tipo']==13){
+                        $tipo = "De la Piel";
+				     }else if($arrData[$i]['tipo']==14){
+                        $tipo = "Del Aparato Genitourinario";
+				     }else if($arrData[$i]['tipo']==15){
+                        $tipo = "Congenitas y Alteraciones Cromosonicas";
+				     } 
+				
+					$htmlDatosTabla.='<tr>
+					<td>'.$arrData[$i]['dui_pk'].'</td>
+					<td>'.$arrData[$i]['fecha_deteccion'].'</td>
+					<td>'.$arrData[$i]['nombre'].'</td>
+					<td>'.$arrData[$i]['apellido'].'</td>
+					<td>'.$vigente.'</td>
+					<td>'.$arrData[$i]['sexo'].'</td>
+					<td>'.$arrData[$i]['estatura'].'</td>
+					<td>'.$arrData[$i]['peso'].'</td>
+					<td>'.$arrData[$i]['nombre_enfermedad'].'</td>
+					<td>'.$tipo.'</td>
+				    <td>'.$arrData[$i]['opciones'].'</td>
+				 </tr>';
+
+				}
+				$arrayDatos = array('datosIndividuales' => $arrData,'htmlDatosTabla' => $htmlDatosTabla);
+			echo json_encode($arrayDatos,JSON_UNESCAPED_UNICODE);
+
+	
+			die();
+		}
 	}
+
+
  ?>

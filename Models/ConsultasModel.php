@@ -132,5 +132,44 @@
 			return $request;
 		}
 
+			public function selectEnfermedad()
+		{
+
+			$sql = "SELECT dp.dui_pk as dui_pk, me.fecha_deteccion as fecha_deteccion,
+dp.nombre as nombre, dp.apellido as apellido, me.enfermedad_vigente as enfermedad_vigente, dp.sexo as sexo,
+dp.estatura as estatura, dp.peso as peso, 
+e.nombre_enfermedad as nombre_enfermedad, e.tipo as tipo
+ FROM tbl_movi_enfermedad as me INNER JOIN tbl_datos_personales as dp ON me.fk_dui_policial = dp.dui_pk 
+INNER JOIN tbl_enfermedades as e ON me.fk_id_enfermedad = e.id_enfermedad";
+			$request = $this->select_all($sql);
+			return $request;
+		}
+     public function selectEnfermedadconp(string $fecha)
+		{
+            //$this->intIdfecha = $fecha;
+            //$this->intIdfecha1 = $fecha1;
+            $fechaini = substr($fecha, 0, 9);
+            $fechafin = substr($fecha, 11, 20);
+			$sql = "SELECT dp.dui_pk as dui_pk, me.fecha_deteccion as fecha_deteccion,
+dp.nombre as nombre, dp.apellido as apellido, me.enfermedad_vigente as enfermedad_vigente, dp.sexo as sexo,
+dp.estatura as estatura, dp.peso as peso, 
+e.nombre_enfermedad as nombre_enfermedad, e.tipo as tipo
+ FROM tbl_movi_enfermedad as me INNER JOIN tbl_datos_personales as dp ON me.fk_dui_policial = dp.dui_pk 
+INNER JOIN tbl_enfermedades as e ON me.fk_id_enfermedad = e.id_enfermedad 
+WHERE me.fecha_deteccion >= '$fechaini' AND me.fecha_deteccion <= '$fechafin'";
+			$request = $this->select_all($sql);
+			return $request;
+		}
+
+public function selectEnfermedadcount()
+		{
+			$sql = "SELECT me.enfermedad_vigente as enfermedad_vigente, COUNT(me.enfermedad_vigente) as cantidad
+FROM tbl_movi_enfermedad as me INNER JOIN tbl_datos_personales as dp ON me.fk_dui_policial = dp.dui_pk 
+INNER JOIN tbl_enfermedades as e ON me.fk_id_enfermedad = e.id_enfermedad
+GROUP BY me.enfermedad_vigente";
+			$request = $this->select_all($sql);
+			return $request;
+		}
+
 	}
  ?>
