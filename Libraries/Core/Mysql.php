@@ -62,8 +62,7 @@
 			$del = $result->execute();
         	return $del;
 		}
+
 	}
-
-
  ?>
 

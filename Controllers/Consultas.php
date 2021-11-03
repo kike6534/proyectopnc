@@ -185,5 +185,39 @@
 		}
 		
 
+		public function Permisos()
+		{
+
+			$data['page_id'] = 3;
+			$data['page_tag'] = "Permisos";
+			$data['page_name'] = "Permisos";
+			$data['page_title'] = "Permisos";
+			$data['page_functions_js'] = "functions_permisos.js";
+			$this->views->getView($this,"permisos",$data);
+		}
+
+		public function getPermisos(int $tipop)
+		{
+
+				$arrData = $this->model->selectPermisos($tipop);
+				$htmlDatosTabla = "";
+				for ($i=0; $i < count($arrData); $i++) {
+									
+					$htmlDatosTabla.='<tr>
+					<td>'.$arrData[$i]['num_oni'].'</td>
+					<td>'.$arrData[$i]['nombre'].'</td>
+					<td>'.$arrData[$i]['apellido'].'</td>
+					<td>'.$arrData[$i]['rango_policia'].'</td>
+					<td>'.$arrData[$i]['N_permisos'].'</td>
+					<td>'.$arrData[$i]['N_permisos_disp'].'</td>
+				 </tr>';
+
+				}
+				$arrayDatos = array('datosIndividuales' => $arrData,'htmlDatosTabla' => $htmlDatosTabla);
+			echo json_encode($arrayDatos,JSON_UNESCAPED_UNICODE);
+	
+			die();
+		}
+
 	}
  ?>
