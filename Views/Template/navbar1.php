@@ -144,7 +144,7 @@
                                             <li><a href="ui-tabs-accordions.php">Inteligencia Policial</a></li>
                                             <li><a href="ui-modals.php">Areas Operativas</a></li>
                                             <li><a href="ui-images.php">Administraciones</a></li>
-                                            <li><a href="<?= base_url2(); ?>/Permisos">Listado de Permisos por Agentes</a></li>
+                                            <li><a href="<?= base_url2(); ?>/Permisos">Listado de Permisos por Agentes AC13055 Cristian</a></li>
 
                                         </ul>
                                     </li>

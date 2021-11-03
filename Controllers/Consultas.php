@@ -57,6 +57,17 @@
 			$this->views->getView($this,"discapacidadcopia",$data);
 		}
 
+		public function AgentesAntiguosNuevos()
+		{
+
+			$data['page_id'] = 3;
+			$data['page_tag'] = "AgentesSegunPromoción";
+			$data['page_name'] = "Agentes por año de promoción";
+			$data['page_title'] = "Agentes por año de promoción";
+			$data['page_functions_js'] = "functions_agentesnuevosyantiguos.js";
+			$this->views->getView($this,"agentesnuevosyantiguos",$data);
+		}
+
 
 		public function getTipoDiscapacidad() 
 		{
@@ -97,6 +108,23 @@
 			die();
 		}
 
+		public function selectAgentesPromocioncount1()
+		{
+                
+			$nombres = array();
+			$cantidad = array();
+				$arrData = $this->model->selectAgentesPromocioncount();
+				
+				for ($i=0; $i < count($arrData); $i++) {
+					array_push($nombres,$arrData[$i]['año_promocion']);
+					array_push($cantidad,intval($arrData[$i]['cantidad_agentes']));
+				}
+				$arrayDatos = array('nombres' => $nombres,'cantidad' => $cantidad);
+			echo json_encode($arrayDatos,JSON_UNESCAPED_UNICODE);
+	
+			die();
+		}
+
 
 		public function getDiscapacidades()
 		{
@@ -118,6 +146,31 @@
 					<td>'.$arrData[$i]['apellido'].'</td>
 					<td>'.$arrData[$i]['tipo_discapacidad'].'</td>
 					<td>'.$arrData[$i]['opciones'].'</td>
+				 </tr>';
+
+				}
+				$arrayDatos = array('datosIndividuales' => $arrData,'htmlDatosTabla' => $htmlDatosTabla);
+			echo json_encode($arrayDatos,JSON_UNESCAPED_UNICODE);
+	
+			die();
+		}
+
+		public function getAgentesPorPromocion()
+		{
+
+				$arrData = $this->model->selectAgentesPorAñoDePromocion();
+				$htmlDatosTabla = "";
+				for ($i=0; $i < count($arrData); $i++) {
+					$btnView = "";
+
+				
+					$htmlDatosTabla.='<tr>
+					<td>'.$arrData[$i]['dui_pk'].'</td>
+					<td>'.$arrData[$i]['nombre'].'</td>
+					<td>'.$arrData[$i]['apellido'].'</td>
+					<td>'.$arrData[$i]['sexo'].'</td>
+					<td>'.$arrData[$i]['año_promocion'].'</td>
+					<td>'.$arrData[$i]['edad'].'</td>
 				 </tr>';
 
 				}
@@ -185,6 +238,7 @@
 		}
 		
 
+<<<<<<< HEAD
 		public function Permisos()
 		{
 
@@ -210,6 +264,49 @@
 					<td>'.$arrData[$i]['rango_policia'].'</td>
 					<td>'.$arrData[$i]['N_permisos'].'</td>
 					<td>'.$arrData[$i]['N_permisos_disp'].'</td>
+=======
+		public function AgentesSancionesyfaltas()
+		{
+
+			$data['page_id'] = 3;
+			$data['page_tag'] = "AgentesSancionesfaltas";
+			$data['page_name'] = "Sanciones y faltas cometidas";
+			$data['page_title'] = "Sanciones y faltas cometidas";
+			$data['page_functions_js'] = "functions_agentessancionesyfaltas.js";
+			$this->views->getView($this,"agentessancionesyfaltas",$data);
+		}
+
+		public function getAgentesSancionesyFaltas()
+		{
+
+				$arrData = $this->model->selectAgentesSanciones();
+				$htmlDatosTabla = "";
+				for ($i=0; $i < count($arrData); $i++) {
+					$btnView = "";
+					if($arrData[$i]['tipo_falta_cometida']== "1"){
+						$arrData[$i]['tipo_falta_cometida']= "Leve";
+					}
+					if($arrData[$i]['tipo_falta_cometida']== "2"){
+                        $arrData[$i]['tipo_falta_cometida']= "Grave";
+					}
+					if($arrData[$i]['tipo_falta_cometida']== "3"){
+                        $arrData[$i]['tipo_falta_cometida']= "Muy grave";
+					}
+				
+					$htmlDatosTabla.='<tr>
+					<td>'.$arrData[$i]['rango_policia'].'</td>
+					<td>'.$arrData[$i]['num_oni'].'</td>
+					<td>'.$arrData[$i]['nombre'].'</td>
+					<td>'.$arrData[$i]['apellido'].'</td>
+					<td>'.$arrData[$i]['fecha_de_sansion'].'</td>
+					<td>'.$arrData[$i]['tipo_falta_cometida'].'</td>
+<<<<<<< HEAD
+					<td>'.$arrData[$i]['falta'].'</td>
+=======
+>>>>>>> main
+					<td>'.$arrData[$i]['sansion'].'</td>
+					<td>'.$arrData[$i]['nivel_org'].'</td>
+>>>>>>> 125fddd6945f0d360bf63b071552a742682f88d2
 				 </tr>';
 
 				}
@@ -219,5 +316,24 @@
 			die();
 		}
 
+<<<<<<< HEAD
+=======
+		public function selectAgentesSancionescount1()
+		{
+                
+			$nombres = array();
+			$cantidad = array();
+				$arrData = $this->model->selectSancionesVecesAplicadas();
+				
+				for ($i=0; $i < count($arrData); $i++) {
+					array_push($nombres,$arrData[$i]['sansion']);
+					array_push($cantidad,intval($arrData[$i]['veces_aplicada']));
+				}
+				$arrayDatos = array('nombres' => $nombres,'cantidad' => $cantidad);
+			echo json_encode($arrayDatos,JSON_UNESCAPED_UNICODE);
+	
+			die();
+		}
+>>>>>>> 125fddd6945f0d360bf63b071552a742682f88d2
 	}
  ?>
