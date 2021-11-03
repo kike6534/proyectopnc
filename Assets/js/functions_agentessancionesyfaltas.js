@@ -153,6 +153,7 @@ function inicializar_tabla(tabla){
             {"data":"apellido"},
             {"data":"fecha_de_sansion"},
             {"data":"tipo_falta_cometida"},
+            {"data":"falta"},
             {"data":"sansion"},
             {"data":"nivel_org"}
         ],

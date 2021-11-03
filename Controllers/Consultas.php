@@ -256,15 +256,6 @@
 				$htmlDatosTabla = "";
 				for ($i=0; $i < count($arrData); $i++) {
 					$btnView = "";
-
-				
-					$htmlDatosTabla.='<tr>
-					<td>'.$arrData[$i]['rango_policia'].'</td>
-					<td>'.$arrData[$i]['num_oni'].'</td>
-					<td>'.$arrData[$i]['nombre'].'</td>
-					<td>'.$arrData[$i]['apellido'].'</td>
-					<td>'.$arrData[$i]['fecha_de_sansion'].'</td>
-					
 					if($arrData[$i]['tipo_falta_cometida']== "1"){
 						$arrData[$i]['tipo_falta_cometida']= "Leve";
 					}
@@ -274,7 +265,15 @@
 					if($arrData[$i]['tipo_falta_cometida']== "3"){
                         $arrData[$i]['tipo_falta_cometida']= "Muy grave";
 					}
-					
+				
+					$htmlDatosTabla.='<tr>
+					<td>'.$arrData[$i]['rango_policia'].'</td>
+					<td>'.$arrData[$i]['num_oni'].'</td>
+					<td>'.$arrData[$i]['nombre'].'</td>
+					<td>'.$arrData[$i]['apellido'].'</td>
+					<td>'.$arrData[$i]['fecha_de_sansion'].'</td>
+					<td>'.$arrData[$i]['tipo_falta_cometida'].'</td>
+					<td>'.$arrData[$i]['falta'].'</td>
 					<td>'.$arrData[$i]['sansion'].'</td>
 					<td>'.$arrData[$i]['nivel_org'].'</td>
 				 </tr>';

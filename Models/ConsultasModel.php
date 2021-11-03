@@ -92,7 +92,8 @@
 		{
 			$sql = "SELECT tbl_rango.rango_policia, tbl_oni_policial.num_oni, tbl_datos_personales.nombre,
 			tbl_datos_personales.apellido, tbl_movimi_sansiones.desde as fecha_de_sansion,
-			tbl_faltas.tipo_falta_cometida,tbl_sansiones.sansion, tbl_nilv_org.nombre as nivel_org 
+			tbl_faltas.tipo_falta_cometida, tbl_faltas.falta,
+			tbl_sansiones.sansion, tbl_nilv_org.nombre as nivel_org 
 			FROM tbl_datos_personales INNER JOIN tbl_oni_policial ON tbl_datos_personales.dui_pk = 
 			tbl_oni_policial.fk_dui_policial
 			INNER JOIN tbl_asig_rango ON tbl_oni_policial.num_oni = tbl_asig_rango.fk_oni_policial

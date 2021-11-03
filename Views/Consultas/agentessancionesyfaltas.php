@@ -38,8 +38,9 @@
                                               <th>Oni</th>
                                               <th>Nombre</th>
                                               <th>Apellido</th>
-                                              <th>Fecha</th>
-                                              <th>Tipo de falta</th>
+                                              <th>Fecha</th>         
+                                              <th>Tipo</th>
+                                              <th>Falta</th>
                                               <th>Sansion</th>
                                               <th>Nivel org</th>
                                             </tr>
