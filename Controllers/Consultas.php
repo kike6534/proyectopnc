@@ -262,7 +262,8 @@
 					<td>'.$arrData[$i]['apellido'].'</td>
 					<td>'.$arrData[$i]['rango_policia'].'</td>
 					<td>'.$arrData[$i]['N_permisos'].'</td>
-					<td>'.$arrData[$i]['N_permisos_disp'].'</td>'
+					<td>'.$arrData[$i]['N_permisos_disp'].'</td>
+					</tr>';
 				}
 			}
 			
