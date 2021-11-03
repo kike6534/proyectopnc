@@ -27,6 +27,18 @@
 			return $request;
 		}
 
+		public function selectAgentesPromocioncount()
+		{
+			$sql = "SELECT YEAR(tbl_promocion.anio_promocion) as año_promocion,
+			COUNT(YEAR(tbl_promocion.anio_promocion)) as cantidad_agentes
+			FROM tbl_datos_personales
+			INNER JOIN tbl_movimi_promo ON tbl_datos_personales.dui_pk = tbl_movimi_promo.fk_dui_policial
+			INNER JOIN tbl_promocion ON tbl_movimi_promo.fk_id_promocion = tbl_promocion.id_promocion
+			GROUP BY tbl_promocion.anio_promocion";
+			$request = $this->select_all($sql);
+			return $request;
+		}
+
 		public function selectDiscapacidadconp(string $tipo)
 		{
             $this->intIdtipo = $tipo;
@@ -61,7 +73,19 @@
 			return $request;
 		}
 
-
+        public function selectAgentesPorAñoDePromocion()
+		{
+			$sql = "SELECT tbl_datos_personales.dui_pk, tbl_datos_personales.nombre,
+			tbl_datos_personales.apellido, tbl_datos_personales.sexo,
+			YEAR(tbl_promocion.anio_promocion) as año_promocion, 
+			DATEDIFF(YEAR,tbl_datos_personales.fecha_nacimiento,GETDATE()) as edad
+			FROM tbl_datos_personales 
+			INNER JOIN tbl_movimi_promo ON tbl_datos_personales.dui_pk = tbl_movimi_promo.fk_dui_policial
+			INNER JOIN tbl_promocion ON tbl_movimi_promo.fk_id_promocion = tbl_promocion.id_promocion
+			ORDER BY tbl_promocion.anio_promocion ASC";
+			$request = $this->select_all($sql);
+			return $request;
+		}
 
 	}
  ?>
