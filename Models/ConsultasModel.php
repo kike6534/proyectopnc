@@ -131,6 +131,25 @@
 			$request = $this->select_all($sql);
 			return $request;
 		}
+		public function selectVehiculosDescargo()
+		{
+
+			$sql = "SELECT
+			dbo.tbl_vehiculo.placa,
+			dbo.tbl_vehiculo.legalidad_vehiculo,
+			dbo.tbl_vehiculo.funcion,
+			dbo.tbl_vehiculo.anioVehiculo
+			
+			FROM
+			dbo.tbl_vehiculo
+			INNER JOIN dbo.tbl_detalle_estado ON dbo.tbl_detalle_estado.fk_numeroEquipo = dbo.tbl_vehiculo.numero_equipo
+			INNER JOIN dbo.tblo_estado_vehiculo ON dbo.tbl_detalle_estado.fk_EstadoVehiculo = dbo.tblo_estado_vehiculo.idEstadoVehiculo
+			WHERE
+			dbo.tblo_estado_vehiculo.nombreEstado = 'EN PROCESO DE DESCARGO'";
+			$request = $this->select_all($sql);
+			return $request;
+		}
+
 
 			public function selectEnfermedad()
 		{

@@ -55,6 +55,16 @@
 			$data['page_functions_js'] = "functions_discapacidad.js";
 			$this->views->getView($this,"discapacidad",$data);
 		}
+		public function VehiculoDescargo()
+		{
+
+			$data['page_id'] = 3;
+			$data['page_tag'] = "Vehiculos en proceso de Descargo";
+			$data['page_name'] = "Vehiculos en proceso de Descargo";
+			$data['page_title'] = "Vehiculos en proceso de Descargo";
+			$data['page_functions_js'] = "functions_Vehiculodescargo.js";
+			$this->views->getView($this,"vehiculoDescargo",$data);
+		}
 
 		public function Discapacidadconp()
 		{
@@ -203,6 +213,28 @@
 					<td>'.$arrData[$i]['apellido'].'</td>
 					<td>'.$arrData[$i]['tipo_discapacidad'].'</td>
 					<td>'.$arrData[$i]['opciones'].'</td>
+				 </tr>';
+
+				}
+				$arrayDatos = array('datosIndividuales' => $arrData,'htmlDatosTabla' => $htmlDatosTabla);
+			echo json_encode($arrayDatos,JSON_UNESCAPED_UNICODE);
+	
+			die();
+		}
+		public function getVehiculoDescargo()
+		{
+
+				$arrData = $this->model->selectVehiculosDescargo();
+				$htmlDatosTabla = "";
+				for ($i=0; $i < count($arrData); $i++) {
+					$btnView = "";
+
+
+					$htmlDatosTabla.='<tr>
+					<td>'.$arrData[$i]['placa'].'</td>
+					<td>'.$arrData[$i]['legalidad_vehiculo'].'</td>
+					<td>'.$arrData[$i]['funcion'].'</td>
+					<td>'.$arrData[$i]['anioVehiculo'].'</td>
 				 </tr>';
 
 				}

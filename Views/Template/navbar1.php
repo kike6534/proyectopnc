@@ -156,6 +156,7 @@
                                             <li><a href="<?= base_url2(); ?>/numeroTelefonoAgentes">Numeros Telefonicos(FO17007)</a></li>
                                              <li><a href="<?= base_url2(); ?>/Enfermedad">Enfermedades Agentes</a></li>
                                             <li><a href="<?= base_url2(); ?>/Enfermedadconp">Enfermedades por Fecha</a></li>
+                                            <li><a href="<?= base_url2(); ?>/vehiculoDescargo">Vehiculos en proceso de Descargo</a></li>
 
                                         </ul>
                                     </li>

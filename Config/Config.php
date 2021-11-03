@@ -8,7 +8,7 @@
 
 	//Datos de conexión a Base de Datos
 	const DB_HOST = "(local)";
-	const DB_NAME = "db_pnc";
+	const DB_NAME = "bdpnc";
 	const DB_USER = "";
 	const DB_PASSWORD = "";
 	const DB_CHARSET = "utf8";
