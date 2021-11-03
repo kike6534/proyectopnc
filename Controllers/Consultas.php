@@ -238,7 +238,6 @@
 		}
 		
 
-<<<<<<< HEAD
 		public function Permisos()
 		{
 
@@ -263,8 +262,10 @@
 					<td>'.$arrData[$i]['apellido'].'</td>
 					<td>'.$arrData[$i]['rango_policia'].'</td>
 					<td>'.$arrData[$i]['N_permisos'].'</td>
-					<td>'.$arrData[$i]['N_permisos_disp'].'</td>
-=======
+					<td>'.$arrData[$i]['N_permisos_disp'].'</td>'
+				}
+			}
+			
 		public function AgentesSancionesyfaltas()
 		{
 
@@ -300,10 +301,7 @@
 					<td>'.$arrData[$i]['apellido'].'</td>
 					<td>'.$arrData[$i]['fecha_de_sansion'].'</td>
 					<td>'.$arrData[$i]['tipo_falta_cometida'].'</td>
-<<<<<<< HEAD
 					<td>'.$arrData[$i]['falta'].'</td>
-=======
->>>>>>> main
 					<td>'.$arrData[$i]['sansion'].'</td>
 					<td>'.$arrData[$i]['nivel_org'].'</td>
 >>>>>>> 125fddd6945f0d360bf63b071552a742682f88d2
@@ -316,8 +314,6 @@
 			die();
 		}
 
-<<<<<<< HEAD
-=======
 		public function selectAgentesSancionescount1()
 		{
                 
@@ -334,6 +330,5 @@
 	
 			die();
 		}
->>>>>>> 125fddd6945f0d360bf63b071552a742682f88d2
 	}
  ?>
