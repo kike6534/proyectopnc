@@ -171,5 +171,14 @@ GROUP BY me.enfermedad_vigente";
 			return $request;
 		}
 
+
+		public function selectNumeroTelAgentes()
+		{
+            
+			$sql = "SELECT a.dui_pk, a.nombre, a.apellido, a.tipo_sangre, a.estado_civil, b.numero_telefono, b.tipo, c.num_oni, c.estado FROM tbl_datos_personales AS a INNER JOIN tbl_telefono AS b ON a.dui_pk = b.fk_dui_policial INNER JOIN dbo.tbl_oni_policial AS c ON  a.dui_pk = c.fk_dui_policial WHERE c.estado = '1'";
+			$request = $this->select_all($sql);
+			return $request;
+		}
+
 	}
  ?>

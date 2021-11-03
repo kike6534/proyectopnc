@@ -89,6 +89,42 @@
 			$this->views->getView($this,"agentesnuevosyantiguos",$data);
 		}
 
+		public function numeroTelefonoAgentes()
+		{
+
+			$data['page_id'] = 3;
+			$data['page_tag'] = "NumeroTelefonicos";
+			$data['page_name'] = "Discapacidades";
+			$data['page_title'] = "Números Telefónicos de Agentes.";
+			$data['page_functions_js'] = "functions_numerostelpoliciales.js";
+			$this->views->getView($this,"numerosdetelefonospoliciales",$data);
+		}
+
+		public function getNumeroTelefonoAgentes()
+		{
+
+				$arrData = $this->model->selectNumeroTelAgentes();
+				$htmlDatosTabla = "";
+				for ($i=0; $i < count($arrData); $i++) {
+					$btnView = "";
+
+				
+					$htmlDatosTabla.='<tr>
+					<td>'.$arrData[$i]['dui_pk'].'</td>
+					<td>'.$arrData[$i]['nombre']." ".$arrData[$i]['apellido'].'</td>
+					<td>'.$arrData[$i]['estado_civil'].'</td>
+					<td align="center">'.$arrData[$i]['tipo_sangre'].'</td>
+					<td>'.$arrData[$i]['numero_telefono'].'</td>
+					<td>'.$arrData[$i]['tipo'].'</td>
+				 </tr>';
+
+				}
+				$arrayDatos = array('datosIndividuales' => $arrData,'htmlDatosTabla' => $htmlDatosTabla);
+			echo json_encode($arrayDatos,JSON_UNESCAPED_UNICODE);
+	
+			die();
+		}
+
 
 		public function getTipoDiscapacidad() 
 		{
