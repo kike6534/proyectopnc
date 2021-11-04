@@ -149,6 +149,7 @@
                                     <li><a href="<?= base_url2(); ?>/Permisos">Listado de Permisos por Agentes AC13055 Cristian</a></li>
                                     <li><a href="<?= base_url2(); ?>/licenciasporvencer">Licencias de conducir por vencer DJ17002</a></li>
                                     <li><a href="<?= base_url2(); ?>/CantidadPermisosAgentes">Cantidad de permisos por agente</a></li>
+                                    <li><a href="<?= base_url2(); ?>/agentesEspecialidad">Listado de Agentes y su especialidad</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -164,6 +165,7 @@
                                     <li><a style="white-space: pre-line;" href="<?= base_url2(); ?>/diasPermisoGoceSueldoPC">Cantidad de días que los agentes tuvieron permiso(goce de sueldo con permiso compensatorio)</a></li>
                                     <!-- fin consulta 30(PM17006) -->
                                 </ul>
+
                             </li>
 
                         </ul>
