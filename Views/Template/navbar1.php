@@ -160,6 +160,7 @@
                                             <li><a href="<?= base_url2(); ?>/Enfermedadconp">Enfermedades por Fecha</a></li>
                                             <li><a href="<?= base_url2(); ?>/vehiculoDescargo">Vehiculos en proceso de Descargo</a></li>
                                             <li><a href="<?= base_url2(); ?>/especialidadagente">Especialidades de agentes</a></li>
+                                            <li><a href="<?= base_url2(); ?>/llamadaemergencia">Contactos Emergencia</a></li> 
 
 
                                         </ul>

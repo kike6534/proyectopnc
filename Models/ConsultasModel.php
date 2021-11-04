@@ -262,5 +262,21 @@ GROUP BY me.enfermedad_vigente";
 
 		}
 
+		public function selectllamadaemergencia()  
+		{  
+ 		//Marta Gloria Campos
+			$sql = "SELECT
+			op.num_oni, 
+			concat(dp.nombre,' ',dp.apellido) AS nombreagente, 
+			dp.tipo_sangre, 
+			concat(fm.nombre,' ',fm.apellido) AS nombrefamiliar, 
+			fm.telefono
+			FROM dbo.tbl_datos_personales AS dp 
+			INNER JOIN dbo.tbl_familiares AS fm ON dp.dui_pk = fm.fk_dui_policial
+			INNER JOIN dbo.tbl_oni_policial AS op ON dp.dui_pk = op.fk_dui_policial";  
+			$request = $this->select_all($sql);  
+			return $request;  
+		}
+
 	}
  ?>

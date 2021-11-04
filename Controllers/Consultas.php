@@ -648,6 +648,42 @@
 	
 			die();
 		}
+		//Marta Gloria Campos Guzman
+		public function llamadaEmergencia()
+		{
+
+			$data['page_id'] = 3;
+			$data['page_tag'] = "Emergencia";
+			$data['page_name'] = "Emergencia";
+			$data['page_title'] = "Llamada de Emergencia";
+			$data['page_functions_js'] = "functions_llamadaemergencia.js";
+			$this->views->getView($this,"llamadaemergencia",$data);
+		}
+		public function getllamadaemergencia()
+		{	
+
+				$arrData = $this->model->selectllamadaemergencia();
+				$htmlDatosTabla = "";
+				for ($i=0; $i < count($arrData); $i++) {
+					$btnView = "";
+
+				
+					$htmlDatosTabla.='<tr>
+					<td>'.$arrData[$i]['num_oni'].'</td>
+					<td>'.$arrData[$i]['nombreagente'].'</td>
+					<td>'.$arrData[$i]['tipo_sangre'].'</td>
+					<td>'.$arrData[$i]['nombrefamiliar'].'</td>
+					<td>'.$arrData[$i]['telefono'].'</td>
+					
+				 </tr>';
+
+				}
+				$arrayDatos = array('datosIndividuales' => $arrData,'htmlDatosTabla' => $htmlDatosTabla);
+			echo json_encode($arrayDatos,JSON_UNESCAPED_UNICODE);
+	
+			die();
+		}
+		
 
 public function getEnfermedadesconp(string $fecha)
 		{
@@ -725,6 +761,6 @@ public function getEnfermedadesconp(string $fecha)
 			die();
 		}
 	}
-
-
+ 
+ 
  ?>
