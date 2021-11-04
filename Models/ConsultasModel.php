@@ -209,5 +209,40 @@ GROUP BY me.enfermedad_vigente";
 			return $request;
 		}
 
+
+		public function selectEspecialidadagente() 
+		{ 
+ 		//LH15014 WILLIAM FERNANDO
+			$sql = "SELECT
+			num_oni,
+			nombre,
+			apellido,
+			STUFF(
+			(
+			SELECT
+			tbl_especialidades.especialidad + ', ' 
+			FROM
+			dbo.tbl_movi_especialidad
+			INNER JOIN dbo.tbl_especialidades ON tbl_movi_especialidad.fk_id_especialidad = tbl_especialidades.id_especialidad 
+			WHERE
+			fk_dui_policia = a.dui_pk FOR XML PATH ( '' ) 
+			),
+			1,
+			0,
+			'' 
+			) AS especialidades 
+			FROM
+			tbl_datos_personales AS a
+			INNER JOIN dbo.tbl_oni_policial AS onis ON a.dui_pk = onis.fk_dui_policial 
+			WHERE EXISTS(SELECT * FROM tbl_movi_especialidad WHERE tbl_movi_especialidad.fk_dui_policia = a.dui_pk)
+			GROUP BY
+			dui_pk,
+			num_oni,
+			nombre,
+			apellido"; 
+			$request = $this->select_all($sql); 
+			return $request; 
+		}
+
 	}
  ?>
