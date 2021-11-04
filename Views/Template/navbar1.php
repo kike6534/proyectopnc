@@ -163,89 +163,124 @@
                                     <li><a style="white-space: pre-line;" href="<?= base_url2(); ?>/diasPermisoGoceSueldoPC">Cantidad de días que los agentes tuvieron permiso(goce de sueldo con permiso compensatorio)</a></li>
                                     <!-- fin consulta 30(PM17006) -->
 
+                                    <li class="has-submenu">
+                                        <a href="#" style="color: #25396f;     font-weight: 700;
+    
+    
+    margin-top: 0;">Departamento</a>
+                                        <ul class="submenu megamenu">
+                                            <li>
+                                                <ul>
+
+                                                    <li><a href="<?= base_url2(); ?>/Discapacidad">Seguridad Publica Urbana</a></li>
+                                                    <li><a href="<?= base_url2(); ?>/Discapacidadconp">Seguridad con Parametro</a></li>
+                                                    <li><a href="<?= base_url2(); ?>/AgentesSancionesyfaltas">Sanciones y faltas BV17012</a></li>
+                                                    <li><a href="<?= base_url2(); ?>/AgentesAntiguosNuevos">Consulta Kelvin</a></li>
+                                                    <li><a href="ui-cards.php">Investigaciones</a></li>
+                                                    <li><a href="ui-tabs-accordions.php">Inteligencia Policial</a></li>
+                                                    <li><a href="ui-modals.php">Areas Operativas</a></li>
+                                                    <li><a href="ui-images.php">Administraciones</a></li>
+                                                    <li><a href="<?= base_url2(); ?>/Permisos">Listado de Permisos por Agentes AC13055 Cristian</a></li>
+                                                    <li><a href="<?= base_url2(); ?>/licenciasporvencer">Licencias de conducir por vencer DJ17002</a></li>
+                                                    <li><a href="<?= base_url2(); ?>/CantidadPermisosAgentes">Cantidad de permisos por agente</a></li>
+
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li><a href="<?= base_url2(); ?>/numeroTelefonoAgentes">Numeros Telefonicos(FO17007)</a></li>
+                                                    <li><a href="<?= base_url2(); ?>/Enfermedad">Enfermedades Agentes</a></li>
+                                                    <li><a href="<?= base_url2(); ?>/Enfermedadconp">Enfermedades por Fecha</a></li>
+                                                    <li><a href="<?= base_url2(); ?>/vehiculoDescargo">Vehiculos en proceso de Descargo</a></li>
+                                                    <li><a href="<?= base_url2(); ?>/especialidadagente">Especialidades de agentes</a></li>
+                                                    <li><a href="<?= base_url2(); ?>/llamadaemergencia">Contactos Emergencia</a></li>
+
+
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                    </li>
 
                                 </ul>
                             </li>
 
-                        </ul>
-                    </li>
-
-                    <li class="has-submenu">
-                        <a href="#" style="color: #25396f;     font-weight: 700;
+                            <li class="has-submenu">
+                                <a href="#" style="color: #25396f;     font-weight: 700;
     
     
     margin-top: 0;">Delegación</a>
-                        <ul class="submenu">
-                            <li class="has-submenu">
-                                <a href="#">Investigacion</a>
                                 <ul class="submenu">
-                                    <li><a href="email-inbox.php">Apoyo Técnico</a></li>
-                                    <li><a href="email-read.php">SubJefatura de Delegación</a></li>
+                                    <li class="has-submenu">
+                                        <a href="#">Investigacion</a>
+                                        <ul class="submenu">
+                                            <li><a href="email-inbox.php">Apoyo Técnico</a></li>
+                                            <li><a href="email-read.php">SubJefatura de Delegación</a></li>
+
+                                        </ul>
+                                    </li>
+
+
+
+
 
                                 </ul>
                             </li>
 
-
-
-
-
-                        </ul>
-                    </li>
-
-                    <li class="has-submenu">
-                        <a href="#" style="color: #25396f;     font-weight: 700;
+                            <li class="has-submenu">
+                                <a href="#" style="color: #25396f;     font-weight: 700;
     
     
     margin-top: 0;">Libros </a>
-                        <ul class="submenu megamenu">
+                                <ul class="submenu megamenu">
 
-                            <li>
-                                <ul>
-                                    <li><a href="libro.php">Administrativo</a></li>
-                                    <li><a href="pages-gallery.php">-</a></li>
+                                    <li>
+                                        <ul>
+                                            <li><a href="libro.php">Administrativo</a></li>
+                                            <li><a href="pages-gallery.php">-</a></li>
 
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
-                        </ul>
-                    </li>
 
-                    <li class="has-submenu" style="color: #25396f;     font-weight: 700;
+                            <li class="has-submenu" style="color: #25396f;     font-weight: 700;
     
     
     margin-top: 0;">
-                        <a href="#" style="color: #25396f;     font-weight: 700;
+                                <a href="#" style="color: #25396f;     font-weight: 700;
     
     
     margin-top: 0;">Novedades</a>
 
-                    </li>
+                            </li>
 
-                    <li>
-                        <a href="../frontend/" target="_blank" style="color: #25396f;     font-weight: 700;
+                            <li>
+                                <a href="../frontend/" target="_blank" style="color: #25396f;     font-weight: 700;
     
     
     margin-top: 0;">Grupos</a>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="../frontend/" target="_blank" style="color: #25396f;     font-weight: 700;
+                            </li>
+                            <li class="has-submenu">
+                                <a href="../frontend/" target="_blank" style="color: #25396f;     font-weight: 700;
     
     
     margin-top: 0;">Reportes</a>
-                        <ul class="submenu" style="background-color: cadetblue;">
-                            <li><a href="ecommerce-product-list.php" style="color: white;">Libro de Actividades</a></li>
-                            <li><a href="ecommerce-product-grid.php">Estados de Actividades</a></li>
+                                <ul class="submenu" style="background-color: cadetblue;">
+                                    <li><a href="ecommerce-product-list.php" style="color: white;">Libro de Actividades</a></li>
+                                    <li><a href="ecommerce-product-grid.php">Estados de Actividades</a></li>
 
-                        </ul>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="../frontend/" target="_blank" style="color: #25396f;     font-weight: 700;
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="../frontend/" target="_blank" style="color: #25396f;     font-weight: 700;
     
     
     margin-left: 100px;">PNC</a>
 
-                    </li>
-                </ul>
-                <!-- End navigation menu -->
+                            </li>
+                        </ul>
+                        <!-- End navigation menu -->
             </div> <!-- end #navigation -->
         </div> <!-- end container -->
     </div> <!-- end navbar-custom -->
