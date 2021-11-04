@@ -209,5 +209,22 @@ GROUP BY me.enfermedad_vigente";
 			return $request;
 		}
 
+		public function selectAgentes()
+		{
+            
+			$sql = "SELECT dui_pk, num_oni, CONCAT(dps.nombre, ' ', dps.apellido) as 'agente' from tbl_datos_personales dps inner join tbl_oni_policial op on dps.dui_pk = op.fk_dui_policial";
+			$request = $this->select_all($sql);
+			return $request;
+		}
+		
+		public function selectCantidadPermisosAgentes(string $agente, string $mes)
+		{
+			
+			$sql = "SELECT fecha_inicio, fecha_final, DATEDIFF (DAY,fecha_inicio, fecha_final) as 'tiempo_restante' ,mtp.motivos_permiso_con_goce_de_sueldo as 'tipo_motivo', motivo from tbl_permiso_con_sin_goce_sueldo pcss  join tbl_datos_personales dps on pcss.fk_dui_solicitante = dps.dui_pk inner join tbl_motivo_permiso mtp on pcss.id_motivo_permiso = mtp.id_motivo_permiso where dps.dui_pk = '".$agente."' and MONTH(fecha_inicio) = ".$mes;
+			
+			$request = $this->select_all($sql);
+			return $request;
+		}
+
 	}
  ?>

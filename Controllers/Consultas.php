@@ -121,6 +121,69 @@
 			$this->views->getView($this,"numerosdetelefonospoliciales",$data);
 		}
 
+		public function CantidadPermisosAgentes()
+		{
+
+			$data['page_id'] = 3;
+			$data['page_tag'] = "Cantidad de permisos de agentes";
+			$data['page_name'] = "Discapacidades";
+			$data['page_title'] = "Cantidad de permisos de agentes.";
+			$data['page_functions_js'] = "functions_cantidad_permisos_agentes.js";
+			$this->views->getView($this,"cantidadpermisosagentes",$data);
+		}
+
+		public function getAgentes() 
+		{
+			$htmlProvee = "";
+
+			$arrDataProvee = $this->model->selectAgentes();
+			$htmlProvee .= "<option value='-1'>Seleccione un agente</option>";
+			if(count($arrDataProvee) > 0 ){
+				for ($i=0; $i < count($arrDataProvee); $i++) { 
+					
+					$htmlProvee .= '<option value="'.$arrDataProvee[$i]['dui_pk'].'">'.$arrDataProvee[$i]['num_oni'].' '.$arrDataProvee[$i]['agente'].'</option>';
+					
+
+				}
+			}
+
+
+			$arrResponse = array('agentes' => $htmlProvee);
+			echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+			die();		
+		}
+
+		public function getPermisosPorAgentes(string $agente)
+		{
+
+				$arrData = $this->model->selectCantidadPermisosAgentes($agente, $_POST["mes"]);
+				$htmlDatosTabla = "";
+				for ($i=0; $i < count($arrData); $i++) {
+
+					$fecha1 = new DateTime($arrData[$i]['fecha_inicio']);
+					$fecha2 = new DateTime($arrData[$i]['fecha_final']);
+
+
+				
+					$htmlDatosTabla.='<tr>
+					<td>'.$fecha1->format('d-M-Y h:i A').'</td>
+					<td>'.$fecha2->format('d-M-Y h:i A').'</td>
+					<td>'.$arrData[$i]['tiempo_restante'].' dias</td>
+					<td align="center">'.$arrData[$i]['tipo_motivo'].'</td>
+					<td>'.$arrData[$i]['motivo'].'</td>
+				 </tr>';
+
+				}
+
+				if(sizeof($arrData)===0){
+					$htmlDatosTabla = '<tr class="odd"><td valign="top" colspan="5" class="dataTables_empty">Ningún dato disponible en esta tabla</td></tr>';
+				}
+
+				$arrayDatos = array('datosIndividuales' => $arrData,'htmlDatosTabla' => $htmlDatosTabla, "cantidad"=>sizeof($arrData));
+			echo json_encode($arrayDatos,JSON_UNESCAPED_UNICODE);
+	
+			die();
+		}
 		public function getNumeroTelefonoAgentes()
 		{
 
