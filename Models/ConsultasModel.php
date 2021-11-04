@@ -225,7 +225,7 @@ GROUP BY me.enfermedad_vigente";
 			
 			$request = $this->select_all($sql);
 			return $request;
-
+		}
 
 		public function selectEspecialidadagente() 
 		{ 
