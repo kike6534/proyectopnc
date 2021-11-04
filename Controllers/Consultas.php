@@ -210,6 +210,53 @@
 		}
 
 
+
+
+
+
+	public function agentesEspecialidad()
+		{
+
+			$data['page_id'] = 3;
+			$data['page_tag'] = "AgenteEspecialidades";
+			$data['page_name'] = "Discapacidades";
+			$data['page_title'] = "Especialides de Agentes.";
+			$data['page_functions_js'] = "functions_agentesconespecialidad.js";
+			$this->views->getView($this,"agentesconespecialidad",$data);
+		}
+
+
+
+
+			public function getAgentesConEspecialidad()
+		{
+
+				$arrData = $this->model->selectAgentesConEspecialidad();
+				$htmlDatosTabla = "";
+				for ($i=0; $i < count($arrData); $i++) {
+					$btnView = "";
+
+				
+					$htmlDatosTabla.='<tr>
+						<td>'.$arrData[$i]['num_oni'].'</td>
+						<td>'.$arrData[$i]['rango_policia'].'</td>
+						<td>'.$arrData[$i]['nombre']." ".$arrData[$i]['apellido'].'</td>
+						<td>'.$arrData[$i]['especialidad'].'</td>
+						 </tr>';
+
+				}
+				$arrayDatos = array('datosIndividuales' => $arrData,'htmlDatosTabla' => $htmlDatosTabla);
+			echo json_encode($arrayDatos,JSON_UNESCAPED_UNICODE);
+	
+			die();
+		}
+
+
+
+
+
+
+
 		public function getTipoDiscapacidad() 
 		{
 			$htmlProvee = "";

@@ -148,8 +148,12 @@
                                             <li><a href="ui-modals.php">Areas Operativas</a></li>
                                             <li><a href="ui-images.php">Administraciones</a></li>
                                             <li><a href="<?= base_url2(); ?>/Permisos">Listado de Permisos por Agentes AC13055 Cristian</a></li>
+<<<<<<< Updated upstream
                                             <li><a href="<?= base_url2(); ?>/licenciasporvencer">Licencias de conducir por vencer DJ17002</a></li>
                                             <li><a href="<?= base_url2(); ?>/CantidadPermisosAgentes">Cantidad de permisos por agente</a></li>
+=======
+                                             <li><a href="<?= base_url2(); ?>/agentesEspecialidad">Listado de Agentes y su especialidad</a></li>
+>>>>>>> Stashed changes
 
                                         </ul>
                                     </li>
@@ -166,7 +170,7 @@
                                         </ul>
                                     </li>
 
-                                </ul>
+                               </ul>
                             </li>
 
                             <li class="has-submenu">
