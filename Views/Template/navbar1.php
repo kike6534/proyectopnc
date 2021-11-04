@@ -149,6 +149,7 @@
                                             <li><a href="ui-images.php">Administraciones</a></li>
                                             <li><a href="<?= base_url2(); ?>/Permisos">Listado de Permisos por Agentes AC13055 Cristian</a></li>
                                             <li><a href="<?= base_url2(); ?>/licenciasporvencer">Licencias de conducir por vencer DJ17002</a></li>
+                                            <li><a href="<?= base_url2(); ?>/CantidadPermisosAgentes">Cantidad de permisos por agente</a></li>
 
                                         </ul>
                                     </li>
