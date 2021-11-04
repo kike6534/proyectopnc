@@ -66,6 +66,17 @@
 			$this->views->getView($this,"vehiculoDescargo",$data);
 		}
 
+		public function licenciasPorvencer()//CODIGO  DJ17002
+		{
+
+			$data['page_id'] = 3;
+			$data['page_tag'] = "Discapacidades";
+			$data['page_name'] = "Discapacidades";
+			$data['page_title'] = "Licencias de conducir que estan proximos a vencer";
+			$data['page_functions_js'] = "functions_licenciaporvencer.js";
+			$this->views->getView($this,"licenciasporvencer",$data);
+		}
+
 		public function Discapacidadconp()
 		{
 
@@ -202,13 +213,13 @@
 					$btnView = "";
 
 
-						$btnView = '<button class="btn btn-warning btn-sm btnPermisosRol" onClick="fntPermisos('.$arrData[$i]['id_oni'].')" title="Permisos"><i class="fas fa-eye"></i></button>';
+						$btnView = '<button class="btn btn-warning btn-sm btnPermisosRol" onClick="fntPermisos('.$arrData[$i]['num_oni'].')" title="Permisos"><i class="fas fa-eye"></i></button>';
 
 					$arrData[$i]['opciones'] = '<div class="text-center">'.$btnView.' </div>';
 
 				
 					$htmlDatosTabla.='<tr>
-					<td>'.$arrData[$i]['id_oni'].'</td>
+					<td>'.$arrData[$i]['num_oni'].'</td>
 					<td>'.$arrData[$i]['nombre'].'</td>
 					<td>'.$arrData[$i]['apellido'].'</td>
 					<td>'.$arrData[$i]['tipo_discapacidad'].'</td>
@@ -235,6 +246,28 @@
 					<td>'.$arrData[$i]['legalidad_vehiculo'].'</td>
 					<td>'.$arrData[$i]['funcion'].'</td>
 					<td>'.$arrData[$i]['anioVehiculo'].'</td>
+				 </tr>';
+
+				}
+				$arrayDatos = array('datosIndividuales' => $arrData,'htmlDatosTabla' => $htmlDatosTabla);
+			echo json_encode($arrayDatos,JSON_UNESCAPED_UNICODE);
+	
+			die();
+		}
+
+		public function getliceniasporvencer()//codigo Dj17002
+		{
+
+				$arrData = $this->model->selectlicenciasporvencer();
+				$htmlDatosTabla = "";
+				for ($i=0; $i < count($arrData); $i++) {
+					$btnView = "";				
+					$htmlDatosTabla.='<tr>
+					<td>'.$arrData[$i]['nombre'].'</td>
+					<td>'.$arrData[$i]['apellido'].'</td>
+					<td>'.$arrData[$i]['numero_licencia'].'</td>
+					<td>'.$arrData[$i]['tipo_licencia'].'</td>
+					<td>'.$arrData[$i]['fecha_renovacion'].'</td>
 				 </tr>';
 
 				}

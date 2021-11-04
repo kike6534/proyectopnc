@@ -15,7 +15,17 @@
 		public function selectDiscapacidad()
 		{
 
-			$sql = "Select o.id_oni,d.nombre,d.apellido,disc.tipo_discapacidad from tbl_datos_personales d inner join tbl_oni_policial o on o.fk_dui_policial=d.dui_pk inner join tbl_detallediscapacidad dis on d.dui_pk=dis.duiagente inner join tbl_discapacidad disc on disc.iddiscapacidad=dis.iddiscapacidad";
+			$sql = "Select o.num_oni,d.nombre,d.apellido,disc.tipo_discapacidad from tbl_datos_personales d inner join tbl_oni_policial o on o.fk_dui_policial=d.dui_pk inner join tbl_detallediscapacidad dis on d.dui_pk=dis.duiagente inner join tbl_discapacidad disc on disc.iddiscapacidad=dis.iddiscapacidad";
+			$request = $this->select_all($sql);
+			return $request;
+		}
+
+		public function selectlicenciasporvencer()//consulta de DJ17002
+		{
+
+			$sql = "select dp.nombre,dp.apellido,lc.numero_licencia,lc.tipo_licencia,lc.fecha_renovacion
+					from tbl_datos_personales dp  
+					inner join tbl_licencia_conducir lc on lc.fk_dui_policial=dp.dui_pk and GETDATE()>=DATEADD(M,-3,lc.fecha_renovacion)";
 			$request = $this->select_all($sql);
 			return $request;
 		}

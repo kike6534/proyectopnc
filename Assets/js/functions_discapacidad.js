@@ -92,7 +92,7 @@ function inicializar_tabla(tabla){
             }
         },
         "columns":[
-            {"data":"id_oni"},
+            {"data":"num_oni"},
             {"data":"nombre"},
             {"data":"apellido"},
             {"data":"tipo_discapacidad"},
